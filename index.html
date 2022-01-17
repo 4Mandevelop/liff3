@@ -71,7 +71,7 @@
     }
 
     function getContext() {
-      const context = await liff.getContext()
+      const context = liff.getContext()
       document.getElementById("type").append(context.type)
       document.getElementById("viewType").append(context.viewType)
       // document.getElementById("utouId").append(liff.getContext().utouId)
