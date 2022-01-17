@@ -18,13 +18,13 @@
   <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
-  <p id="decodedIDToken"><b>email:</b> </p>
+  <p id="decodedIDToken"><b>email:</b> </p>-->
   <p id="type"><b>type:</b> </p>
   <p id="viewType"><b>viewType:</b> </p>
   <p id="utouId"><b>utouId:</b> </p>
   <p id="roomId"><b>roomId:</b> </p>
   <p id="groupId"><b>groupId:</b> </p>
-  <p id="friendship"><b>isFriendship:</b> </p>
+  <!-- <p id="friendship"><b>isFriendship:</b> </p>
   <p id="scanCode"><b>Code:</b> </p>
   <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
   <p id="universalLink1"><b>Universal Link:</b> </p>
@@ -36,7 +36,7 @@
   <button onclick="openWindow()">Open Window</button>
   <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
-  <button id="btnClose" onclick="closed()">Close</button> -->
+  <button id="btnClose" onclick="closed()">Close</button>  -->
 
   <!-- <script src="js/vconsole.min.js"></script> -->
   <!-- <script>
@@ -71,6 +71,13 @@
     }
 
     function getContext() {
+      document.getElementById("type").append(liff.getContext().type)
+      document.getElementById("viewType").append(liff.getContext().viewType)
+      document.getElementById("utouId").append(liff.getContext().utouId)
+      document.getElementById("roomId").append(liff.getContext().roomId)
+      document.getElementById("groupId").append(liff.getContext().groupId)
+      
+
     }
 
     async function getUserProfile() {
@@ -102,16 +109,15 @@
     // http://172.16.0.81:8181/apex/f?p=106:9999:514257071477::::P9999_USERNAME:1234
     async function main() {
       //  alert("Welcome to My LIFF") 
-      // chai
       await liff.init({ liffId: "1656600249-LwlzqaON" })
       // getEnvironment()
       // getUserProfile()
-      var profile = await liff.getProfile()
+      // var profile = await liff.getProfile()
       // location.replace("https://apexmmd.jaymart.org/apex/f?p=EPOSDEV:LOGIN_DESKTOP")
-      location.replace("https://apexmmd.jaymart.org/apex/f?p=102:LOGIN::"+ profile.userId +"::::")
+      // location.replace("https://apexmmd.jaymart.org/apex/f?p=102:LOGIN::"+ profile.userId +"::::")
       
        //location.replace("http://hdsupport.softsquaregroup.com:8181/apex/f?p=HDM105:LOGIN_DESKTOP::"+ profile.userId +":::::")
-      // getContext()
+      getContext()
       // getFriendship()
       // createUniversalLink()
     }
