@@ -222,7 +222,10 @@
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
           'Content-Type': 'application/json',
-          'Connection': 'keep-alive'
+          'Connection': 'keep-alive',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': '*',
+          'Access-Control-Allow-Methods': 'GET,POST'
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         redirect: 'follow', // manual, *follow, error
