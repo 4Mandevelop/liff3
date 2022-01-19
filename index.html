@@ -258,19 +258,40 @@
       // getFriendship()
       // createUniversalLink()
       try{
+      //   const response = await fetch('http://172.16.0.122:8080/LineOAService/demo/insert', {
+      //   mode:"no-cors",
+      //   method: 'POST',
+      //   body: {   
+      //             "informant": "Chai",
+      //             "description": "Test1111"
+      //         }, // string or object
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     "Access-Control-Allow-Origin": "*"
+      //   }
+      // });
+
       const response = await fetch('https://notify-api.line.me/api/notify', {
+        mode:"no-cors",
         method: 'POST',
-        body: {'message': 'ชัยยิงเองครับ'}, // string or object
+        body: {   
+                  "message": "Chai"
+              }, // string or object
         headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Headers': '*',
-          'Access-Control-Allow-Methods': 'GET,POST',
-          'Authorization': 'Bearer rLMTrXuoLNu4pazIRRD7hBVHLGLa9kLmBwT9dx0hLoR',
+          "Content-Type": "application/json",
+          // "Access-Control-Allow-Origin": "*",
+          "Authorization": "Bearer rLMTrXuoLNu4pazIRRD7hBVHLGLa9kLmBwT9dx0hLoR",
+          "Content-Length": 4
         }
       });
-      const myJson = await response.json(); 
-      alert(myJson)
+      
+      // const myJson = await response.json(); 
+        // console.log(response.json())
+          // 'Content-Type': 'application/json',
+          // 'Access-Control-Allow-Origin': '*',
+          // 'Access-Control-Allow-Headers': '*',
+          // 'Access-Control-Allow-Methods': 'GET,POST'
+          // 'Authorization': 'Bearer rLMTrXuoLNu4pazIRRD7hBVHLGLa9kLmBwT9dx0hLoR',
     }catch(e){
       alert(e)
     }
@@ -280,6 +301,24 @@
       //   alert(data); // JSON data parsed by `data.json()` call
       // });
 
+
+      const data = { username: 'example' };
+
+      fetch('https://example.com/profile', {
+        mode:"no-cors",
+        method: 'POST', // or 'PUT'
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
 
     }
     main()
