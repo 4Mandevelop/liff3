@@ -212,113 +212,36 @@
       }
       
     }
-    async function postData(url = '', data = {}) {
-      try{
-      // Default options are marked with *
-      const response = await fetch(url, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
+    async function postData() {
+        const data = {informant: "Chai",description: "Test1111"};
+
+        fetch('http://172.16.0.122:8080/LineOAService/demo/insert', {
+        method: 'POST', // or 'PUT'
         headers: {
-          'Content-Type': 'application/json',
-          'Connection': 'keep-alive',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Headers': '*',
-          'Access-Control-Allow-Methods': 'GET,POST'
-          // 'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
         },
-        redirect: 'follow', // manual, *follow, error
-        referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-        body: JSON.stringify(data) // body data type must match "Content-Type" header
-      });
-      return response.json(); // parses JSON response into native JavaScript objects
+        body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+        console.log('Success:', data);
+        document.getElementById("first").value = data;
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        document.getElementById("first").value = error;
+        });
     }
-    catch(e){
-      alert(e)
-      return 'error'; // parses JSON response into native JavaScript objects
-
-    }
-    }
-
-    
-    // f?p=App:Page:Session:Request:Debug:ClearCache:itemNames:itemValues:PrinterFriendly
-    // http://172.16.0.81:8181/apex/f?p=106:9999:514257071477::::P9999_USERNAME:1234
     async function main() {
       //  alert("Welcome to My LIFF") 
       await liff.init({ liffId: "1656600249-LwlzqaON" })
       // getEnvironment()
       getUserProfile()
       // var profile = await liff.getProfile()
-      // location.replace("https://apexmmd.jaymart.org/apex/f?p=EPOSDEV:LOGIN_DESKTOP")
       // location.replace("https://apexmmd.jaymart.org/apex/f?p=102:LOGIN::"+ profile.userId +"::::")
-      
        //location.replace("http://hdsupport.softsquaregroup.com:8181/apex/f?p=HDM105:LOGIN_DESKTOP::"+ profile.userId +":::::")
       getContext()
-      // getFriendship()
-      // createUniversalLink()
-      try{
-      //   const response = await fetch('http://172.16.0.122:8080/LineOAService/demo/insert', {
-      //   mode:"no-cors",
-      //   method: 'POST',
-      //   body: {   
-      //             "informant": "Chai",
-      //             "description": "Test1111"
-      //         }, // string or object
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     "Access-Control-Allow-Origin": "*"
-      //   }
-      // });
-
-      const response = await fetch('https://notify-api.line.me/api/notify', {
-        mode:"no-cors",
-        method: 'POST',
-        body: {   
-                  "message": "Chai"
-              }, // string or object
-        headers: {
-          "Content-Type": "application/json",
-          // "Access-Control-Allow-Origin": "*",
-          "Authorization": "Bearer rLMTrXuoLNu4pazIRRD7hBVHLGLa9kLmBwT9dx0hLoR",
-          "Content-Length": 4
-        }
-      });
-      
-      // const myJson = await response.json(); 
-        // console.log(response.json())
-          // 'Content-Type': 'application/json',
-          // 'Access-Control-Allow-Origin': '*',
-          // 'Access-Control-Allow-Headers': '*',
-          // 'Access-Control-Allow-Methods': 'GET,POST'
-          // 'Authorization': 'Bearer rLMTrXuoLNu4pazIRRD7hBVHLGLa9kLmBwT9dx0hLoR',
-    }catch(e){
-      alert(e)
-    }
-
-      // postData('https://example.com/answer', { answer: 42 })
-      // .then(data => {
-      //   alert(data); // JSON data parsed by `data.json()` call
-      // });
-
-
-      const data = { username: 'example' };
-
-      fetch('https://example.com/profile', {
-        mode:"no-cors",
-        method: 'POST', // or 'PUT'
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+      postData()
 
     }
     main()
