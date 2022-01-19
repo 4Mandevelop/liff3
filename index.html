@@ -110,14 +110,7 @@
 
 
 
- <!-- <p ><b>Go to EPOS</b> </p>
-  <p ><b>Case: HTTPS</b> </p> -->
-  <!-- <p id="os"><b>OS:</b> </p>
-  <p id="language"><b>Language:</b> </p>
-  <p id="version"><b>Version:</b> </p>
-  <p id="isInClient"><b>isInClient:</b> </p>
-  <p id="accessToken"><b>AccessToken:</b> </p>-->
-  <img id="pictureUrl">
+  <!-- <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
   <p id="statusMessage"><b>statusMessage:</b> </p>
@@ -126,26 +119,8 @@
   <p id="viewType"><b>viewType:</b> </p>
   <p id="utouId"><b>utouId:</b> </p>
   <p id="roomId"><b>roomId:</b> </p>
-  <p id="groupId"><b>groupId:</b> </p>
-  <!-- <p id="friendship"><b>isFriendship:</b> </p>
-  <p id="scanCode"><b>Code:</b> </p>
-  <p id="isLoggedIn"><b>isLoggedIn:</b> </p>
-  <p id="universalLink1"><b>Universal Link:</b> </p>
-  <p id="universalLink2"><b>Universal Link with Query params:</b> </p>
-  <p><a href="liff/path/?param=9">Link to Path</a></p>
+  <p id="groupId"><b>groupId:</b> </p> -->
 
-  <button id="btnMsg" onclick="sendMsg()">Send Message</button>
-  <button id="btnShare" onclick="shareMsg()">Share Target Picker</button>
-  <button onclick="openWindow()">Open Window</button>
-  <button id="btnScanCode" onclick="scanCode()">Scan Code</button>
-  <button id="btnLogOut" onclick="logOut()">Log Out</button>
-  <button id="btnClose" onclick="closed()">Close</button>  -->
-
-  <!-- <script src="js/vconsole.min.js"></script> -->
-  <!-- <script>
-    var vConsole = new VConsole()
-    console.log("Hello World!")
-  </script> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
   <script>
@@ -225,7 +200,7 @@
         .then(response => response.json())
         .then(data => {
         console.log('Success:', data);
-        document.getElementById("first").value = data;
+        document.getElementById("first").value = data.status;
         })
         .catch((error) => {
         console.error('Error:', error);
@@ -236,11 +211,11 @@
       //  alert("Welcome to My LIFF") 
       await liff.init({ liffId: "1656600249-LwlzqaON" })
       // getEnvironment()
-      getUserProfile()
+      // getUserProfile()
       // var profile = await liff.getProfile()
       // location.replace("https://apexmmd.jaymart.org/apex/f?p=102:LOGIN::"+ profile.userId +"::::")
        //location.replace("http://hdsupport.softsquaregroup.com:8181/apex/f?p=HDM105:LOGIN_DESKTOP::"+ profile.userId +":::::")
-      getContext()
+      // getContext()
       postData()
 
     }
